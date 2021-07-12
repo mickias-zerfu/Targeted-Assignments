@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIkiyas Zerfu Input Validation</title>
+    <style>
+        input[type="submit"] {
+            cursor: pointer;
+        }
+    </style>
+    <script type="text/javascript">
+        function formValidation(oEvent) {
+            oEvent = oEvent || window.event;
+            var txtField = oEvent.target || oEvent.srcElement;
+
+            var t1ck = true;
+            var msg = " ";
+            if (document.getElementById("t1").value.length < 0) {
+                t1ck = false;
+                msg = msg + "Your name should not be Null";
+            }
+            if (document.getElementById("t2").value < 18) {
+                t1ck = false;
+                msg = msg + "Your age should be greater than 18";
+            }
+
+            if (t1ck) {
+                document.getElementById("btnSignUp").disabled = false;
+            } else {
+                document.getElementById("btnSignUp").disabled = true;
+            }
+        }
+
+        window.onload = function() {
+            var btnSignUp = document.getElementById("btnSignUp");
+
+            var t1 = document.getElementById("t1");
+            var r2 = document.getElementById("t2");
+
+            var t1ck = false;
+            document.getElementById("btnSignUp").disabled = true;
+            t1.onkeyup = formValidation;
+            t2.onkeyup = formValidation;
+        };
+    </script>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td><input type="text" id="t1" name="UserName" /></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="Number" id="t2" name="Age" /></td>
+            </tr>
+        </table>
+        <input type="submit" id="btnSignUp" value="Submit !!" />
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy on input and display</title>
+</head>
+
+<body>
+
+    <h1> Question Number THreee </h1>
+    <input type="text" id="userInput">
+    <button type="button" onclick="displayInput()">DisplayInput</button>
+    <h3 id="displayHere"> Display user Name Here </h3>
+    <hr>
+
+    <h1> Question Number Four </h1>
+    <h2>Copying ON Input </h2> <input type="text" id="firstText" oninput="copyText()">
+    <input type="text" id="secondtext" onchange="copyText()">
+
+
+    <script>
+        function displayInput() {
+            var string = document.getElementById("userInput").value;
+            document.getElementById("displayHere").innerHTML = string;
+        }
+
+        function copyText() {
+            var first = document.getElementById("firstText").value;
+            // alert(first);
+            document.getElementById("secondtext").value = first;
+        }
+    </script>
+</body>
+
+</html>
